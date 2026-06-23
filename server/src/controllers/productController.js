@@ -98,3 +98,20 @@ export const getStats = async (req, res) => {
     totalProducts: total,
   });
 };
+
+export const getCategories = async (req, res) => {
+  try {
+    const categories = await prisma.product.findMany({
+      distinct: ["category"],
+      select: {
+        category: true,
+      },
+    });
+
+    res.json(categories);
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+};
