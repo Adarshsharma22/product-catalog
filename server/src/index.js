@@ -10,10 +10,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: [
-      "http://localhost:5173",
-      "https://product-catalog-three-xi.vercel.app/",
-    ],
+    origin: "*",
   })
 );
 app.use(express.json());
