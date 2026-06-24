@@ -3,7 +3,6 @@
 export default function Header({
   totalProducts,
   categories,
-  search,
   selectedCategory,
   setSelectedCategory,
 }) {
@@ -20,15 +19,7 @@ export default function Header({
         {totalProducts.toLocaleString()}
       </p>
 
-      <input
-        type="text"
-        placeholder="Search products..."
-        className="w-64 rounded border p-2"
-        value={search}
-        onChange={(e) =>
-          setSearch(e.target.value)
-        }
-      />
+
 
       <select
         value={selectedCategory}
