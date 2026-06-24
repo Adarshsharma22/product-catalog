@@ -5,6 +5,7 @@ export const getProducts = async (req, res) => {
     const {
       limit = 20,
       category,
+      search,
       cursorUpdatedAt,
       cursorId,
     } = req.query;
@@ -15,6 +16,13 @@ export const getProducts = async (req, res) => {
 
     if (category) {
       where.category = category;
+    }
+
+    if (search) {
+        where.name = {
+            contains: search,
+            mode: "insensitive",
+        };
     }
 
     // First page
