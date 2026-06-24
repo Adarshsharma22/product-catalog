@@ -3,12 +3,13 @@
 export default function Header({
   totalProducts,
   categories,
+  search,
   selectedCategory,
   setSelectedCategory,
 }) {
 
   return (
-    <div className="mb-8 flex flex-col gap-4">
+    <div className="mb-8 flex flex-row gap-4">
       <h1 className="text-3xl font-bold">
         Product Browser
       </h1>
@@ -18,6 +19,16 @@ export default function Header({
         {" "}
         {totalProducts.toLocaleString()}
       </p>
+
+      <input
+        type="text"
+        placeholder="Search products..."
+        className="w-64 rounded border p-2"
+        value={search}
+        onChange={(e) =>
+          setSearch(e.target.value)
+        }
+      />
 
       <select
         value={selectedCategory}

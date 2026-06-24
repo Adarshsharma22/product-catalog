@@ -9,6 +9,7 @@ function App() {
   const [totalProducts, setTotalProducts] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState("");
   const [nextCursor, setNextCursor] = useState(null);
+  const [search, setSearch] = useState("");
   
   const fetchProducts = async ( reset = false) => {
     const params = {};
@@ -42,7 +43,7 @@ function App() {
 
   useEffect(() => {
     fetchProducts(true);
-  }, [selectedCategory]);
+  }, [selectedCategory, search]);
 
   useEffect(() => {
     api
@@ -71,6 +72,8 @@ function App() {
         setSelectedCategory={
           setSelectedCategory
         }
+        search={search}
+        setSearch={setSearch}
       />
 
       <div className="grid gap-4 md:grid-cols-3">
